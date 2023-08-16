@@ -1,0 +1,37 @@
+<%- include('./head.ejs', { hideProfile: false }) %>
+
+  <main class="container mt-5 mb-5">
+    <div class="bg-body-tertiary p-5 rounded">
+      <h1>Activate your sub-domain</h1>
+      <p class="lead">
+        <div class="col d-flex align-items-start">
+          <div
+            class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 p-2 rounded-5 me-3">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <div>
+            <h3 class="fs-2 text-body-emphasis">Sub-domain</h3>
+            <div class="row">
+              <div class="col">              
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="coding" id="domain.sub">
+                  <span class="input-group-text">.is-my.life</span>
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="dh=bedaf4574e49d100d890e229e92856ebc174f863" id="domain.record">
+                  <button class="btn btn-primary" type="button" id="domain.submit">Activate</button>
+                </div>
+              </div>
+            </div>
+            <div id="passwordHelpBlock" class="form-text">
+              After activating you might need to wait 10-60 seconds for Discord to check it.
+            </div>
+          </div>
+        </div>
+      </p>
+    </div>
+  </main>
+
+<%- include('./footer.ejs', { scripts: ['base', 'script', 'index'], hideSessionToken: false }) %>

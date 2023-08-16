@@ -1,0 +1,58 @@
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast align-items-center text-bg-danger border-0"  role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false" id="connectionLostToast">
+      <div class="d-flex">
+        <div class="toast-body">
+          Oopsie, looks like the connection has been lost with the server...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast align-items-center text-bg-danger border-0"  role="alert" aria-live="assertive" aria-atomic="true" id="dynamicErrorToast">
+      <div class="d-flex">
+        <div class="toast-body" id="dynamicErrorToastText">
+          {{text}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast align-items-center text-bg-success border-0"  role="alert" aria-live="assertive" aria-atomic="true" id="dynamicToast">
+      <div class="d-flex">
+        <div class="toast-body" id="dynamicToastText">
+          {{text}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
+    integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+    integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/8c76c9888f.js" crossorigin="anonymous"></script>
+  
+  <% if(!hideSessionToken){ %>
+  <script>
+    window.SESSION = {
+      access_token: `<%= access_token %>`
+    };
+  </script>
+  <% } %>
+
+  <% scripts.forEach(script => { %>
+  <script src="/<%= script %>.js"></script>
+  <% }) %>
+</body>
+
+</html>

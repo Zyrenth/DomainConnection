@@ -1,0 +1,30 @@
+{
+  "name": "dynamic-domain-connection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "build:tsc": "tsc",
+    "start": "node --trace-uncaught --trace-warnings ./dist/index.js",
+    "rebuild": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "Zyrenth",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudflare/types": "^6.21.20",
+    "axios": "^1.4.0",
+    "cloudflare": "^2.9.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-session-json": "^0.0.8",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0"
+  }
+}

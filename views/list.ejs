@@ -1,0 +1,24 @@
+<%- include('./head.ejs', { hideProfile: false }) %>
+
+  <main class="container mt-5 mb-5">
+    <div class="bg-body-tertiary p-5 rounded">
+      <h1>List of active sub-domains</h1>
+      <p class="lead">
+        <div class="table-responsive small rounded">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Sub-domain</th>
+                <th scope="col">User</th>
+                <th scope="col">Record</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody id="sub-domain-list"></tbody>
+          </table>
+        </div>
+      </p>
+    </div>
+  </main>
+
+<%- include('./footer.ejs', { scripts: ['base', 'script', 'list'], hideSessionToken: false }) %>

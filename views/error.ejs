@@ -1,0 +1,10 @@
+<%- include('./head.ejs', { activePage: 'error', hideProfile: true }) %>
+
+  <main class="container mt-5 mb-5">
+    <div class="bg-body-tertiary p-5 rounded">
+      <h1><%= title %></h1>
+      <p class="lead"><%= description %></p>
+    </div>
+  </main>
+
+<%- include('./footer.ejs', { scripts: ['base'], hideSessionToken: true }) %>
