@@ -8,7 +8,7 @@ const profilePicture = document.getElementById('profile-picture');
 /* *************************************************************************** */
 
 // Connect to socket.
-window.socket = io(window.location.protocol + '//' + window.location.hostname + ':4000', {
+window.socket = io(window.location.protocol + '//' + window.location.hostname + ':' + window.socket_port, {
     query: { token: window.SESSION['access_token'] }
 });
 

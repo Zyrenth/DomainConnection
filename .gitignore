@@ -4,3 +4,4 @@ dist
 */.env
 express-sessions.json
 records.json
+config.json

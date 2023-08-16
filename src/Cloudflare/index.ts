@@ -1,4 +1,5 @@
 import CF from 'cloudflare';
+import { config } from '../index.js';
 
 export default class Cloudflare {
     cloudflare: CF;
@@ -13,7 +14,7 @@ export default class Cloudflare {
     private async getZoneId() {
         try {
             const zones = await this.cloudflare.zones.browse();
-            const zone = zones.result.find((z) => z.name === `is-my.life`);
+            const zone = zones.result.find((z) => z.name === config[`domain`]);
             
             return zone.id;
         } catch (err) {
@@ -28,7 +29,7 @@ export default class Cloudflare {
 
         try {
             const dnsRecords = await this.cloudflare.dnsRecords.browse(zoneId);
-            const txtRecord = dnsRecords.result.find((r) => r.type === 'TXT' && r.name === `_discord.${name}.is-my.life`);
+            const txtRecord = dnsRecords.result.find((r) => r.type === 'TXT' && r.name === `_discord.${name}.${config[`domain`]}`);
 
             if(txtRecord) return txtRecord.id;
 
@@ -46,7 +47,7 @@ export default class Cloudflare {
         try {
             const response = await this.cloudflare.dnsRecords.add(zoneId, {
                 type: 'TXT',
-                name: `_discord.${sub}.is-my.life`,
+                name: `_discord.${sub}.${config[`domain`]}`,
                 content: record,
                 ttl: 1,
             });

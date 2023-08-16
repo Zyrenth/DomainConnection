@@ -30,11 +30,11 @@ export default async function Express() {
     }));
 
     app.get('/', isAuthenticated, (req, res, next) => {
-        res.render(`${__dirname}/../views/index.ejs`, { access_token: req.session.user['access_token'] });
+        res.render(`${__dirname}/../views/index.ejs`, { access_token: req.session.user['access_token'], domain: config[`domain`], socket_port: config[`socket_port`] });
     });
 
     app.get('/list', isAuthenticated, (req, res, next) => {
-        res.render(`${__dirname}/../views/list.ejs`, { access_token: req.session.user['access_token'] });
+        res.render(`${__dirname}/../views/list.ejs`, { access_token: req.session.user['access_token'], domain: config[`domain`], socket_port: config[`socket_port`] });
     });
 
     app.get('/logout', isAuthenticated, async (req, res, next) => {
@@ -69,7 +69,7 @@ export default async function Express() {
 
             const profile = await getProfile(access_token);
 
-            if (!config['allowed_users'].includes(profile.id)) return res.render(`${__dirname}/../views/error.ejs`, { title: `Auth error`, description: `Hey ${profile.global_name}! You're not whitelisted here, ask zyrenth to whitelist you and try again later.` });
+            if (!config['allowed_users'].includes(profile.id)) return res.render(`${__dirname}/../views/error.ejs`, { title: `Auth error`, description: `Hey ${profile.global_name}! You're not whitelisted here, ask zyrenth to whitelist you and try again later.`, domain: config[`domain`], socket_port: config[`socket_port`] });
 
             req.session.user = {
                 access_token,
@@ -79,12 +79,12 @@ export default async function Express() {
 
             res.redirect('/');
         } catch (error) {
-            return res.render(`${__dirname}/../views/error.ejs`, { title: `Auth error`, description: `Something went wrong while communicating with discord.` });
+            return res.render(`${__dirname}/../views/error.ejs`, { title: `Auth error`, description: `Something went wrong while communicating with discord.`, domain: config[`domain`], socket_port: config[`socket_port`] });
         };
     });
 
     app.get('*', (req, res) => {
-        res.render(`${__dirname}/../views/error.ejs`, { title: `404 - Not found`, description: `Your epic url (${req.params['0']}) doesn't exist on this server.` });
+        res.render(`${__dirname}/../views/error.ejs`, { title: `404 - Not found`, description: `Your epic url (${req.params['0']}) doesn't exist on this server.`, domain: config[`domain`], socket_port: config[`socket_port`] });
     });
 
     // Socket event listeners
