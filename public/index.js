@@ -12,7 +12,7 @@ function checkFields() {
 }
 
 document.getElementById('domain.submit').addEventListener('click', function(){
-    if(!/^(?!.*--)[A-Za-z0-9-]+$/.test(document.getElementById(`domain.sub`).value) || !/^[a-zA-Z0-9=]*$/.test(document.getElementById(`domain.record`).value) || !document.getElementById(`domain.record`).value.startsWith(`dh=`) || data.sub.length > 63 || data.sub.endsWith(`-`)) {
+    if(!/^(?!.*--)[A-Za-z0-9-]+$/.test(document.getElementById(`domain.sub`).value) || !/^[a-zA-Z0-9=]*$/.test(document.getElementById(`domain.record`).value) || !document.getElementById(`domain.record`).value.startsWith(`dh=`) || document.getElementById(`domain.sub`).value.length > 63 || document.getElementById(`domain.sub`).value.endsWith(`-`)) {
         document.getElementById(`dynamicErrorToastText`).innerHTML = `The sub-domain and record value can only contain letters, numbers, dashes or a valid format.`;
         bootstrap.Toast.getOrCreateInstance(document.getElementById('dynamicErrorToast')).show();
         return;
