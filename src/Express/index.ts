@@ -105,7 +105,7 @@ export default async function Express() {
         socket.on('activate', async (data) => {
             if (!(data && data.sub && data.record)) return socket.emit('activate', false);
 
-            if(!/^[a-zA-Z0-9]*$/.test(data.sub) || !/^[a-zA-Z0-9]*$/.test(String(data.record).replace(`dh=`, ``)) || !String(data.record).startsWith(`dh=`)) return socket.emit('activate', false);
+            if(!/^(?!.*--)[A-Za-z0-9-]+$/.test(data.sub) || !/^[a-zA-Z0-9]*$/.test(String(data.record).replace(`dh=`, ``)) || !String(data.record).startsWith(`dh=`) || data.sub.length > 63 || data.sub.endsWith(`-`)) return socket.emit('activate', false);
 
             if(!fs.existsSync(path.join(`${__dirname}`, `..`, `records.json`))) fs.writeFileSync(path.join(`${__dirname}`, `..`, `records.json`), `{}`, `utf-8`);
 
