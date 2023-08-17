@@ -17,15 +17,6 @@ dotenv.config({ path: __dirname + '/.env' });
 
 const config = JSON.parse(fs.readFileSync(__dirname + '/../config.json', 'utf-8'));
 
-// Get git commit hash.
-function getCurrentCommit() {
-    try {
-      return execSync("git rev-parse HEAD").toString().trim().slice(0, 7);
-    } catch (e) {
-      return null;
-    };
-};
-
 // Express Setup
 const app = express();
 
