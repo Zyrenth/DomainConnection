@@ -1,3 +1,10 @@
+> <picture>
+>   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Mqxx/GitHub-Markdown/main/blockquotes/badge/light-theme/warning.svg">
+>   <img alt="Warning" src="https://raw.githubusercontent.com/Mqxx/GitHub-Markdown/main/blockquotes/badge/dark-theme/warning.svg">
+> </picture><br>
+>
+> This repo is no longer maintained this also means that this is an earlier version of the currently published version of is-my.life domain connection. There will be no more package or vulnerability fixes, if you want to use it I recommend checking for vulnerabilities first and fixing them.
+
 # Discord Domain Connection
 Integrates with your Cloudflare account so you can share your funny domain with your friends.
 This is related to the new Discord feature called Domain Connections.
@@ -64,7 +71,3 @@ The `http_port` is the web-app's port which is how you access the website and `s
 
 ## Domain
 Set the domain to a domain that you already own and already added to your Cloudflare account.
-
-# Future
-I don't really plan on updating this but feel free to make forks, change stuff in it.
-I might add a section for cool forks of this web-app, but to do that you have to open an issue and share the fork with me there.
